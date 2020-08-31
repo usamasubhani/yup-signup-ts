@@ -135,7 +135,7 @@ const SignupForm = () => {
                     control={
                       <Checkbox value="allowExtraEmails" color="primary" />
                     }
-                    label="I want to receive inspiration, marketing promotions and updates via email."
+                    label="Subscribe to weekly newsletter."
                   />
                 </Grid>
               </Grid>
