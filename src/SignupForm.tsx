@@ -12,6 +12,18 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
+import * as yup from "yup";
+
+let SignupSchema = yup.object().shape({
+  firstName: yup.string().required("Required!."),
+  lastName: yup.string().required("Required!."),
+  email: yup.string().email().required("Required!"),
+  password: yup
+    .string()
+    .min(6, "Password is too short.")
+    .max(20, "Password is too long.")
+    .required("Required!."),
+});
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
