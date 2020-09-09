@@ -13,6 +13,13 @@ import Container from "@material-ui/core/Container";
 import { Formik, Form, Field } from "formik";
 import * as yup from "yup";
 
+interface Values {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
 let SignupSchema = yup.object().shape({
   firstName: yup.string().required("Required!."),
   lastName: yup.string().required("Required!."),
@@ -63,7 +70,7 @@ const SignupForm = () => {
             password: "",
           }}
           validationSchema={SignupSchema}
-          onSubmit={values => {
+          onSubmit={(values : Values) => {
             console.log(values);
           }}
         >
@@ -83,7 +90,11 @@ const SignupForm = () => {
                     autoFocus
                     onChange={handleChange}
                     error={errors.firstName && touched.firstName}
-                    helperText={errors.firstName && touched.firstName ? errors.firstName : null}
+                    helperText={
+                      errors.firstName && touched.firstName
+                        ? errors.firstName
+                        : null
+                    }
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -97,7 +108,11 @@ const SignupForm = () => {
                     name="lastName"
                     autoComplete="lname"
                     error={errors.lastName && touched.lastName}
-                    helperText={errors.lastName && touched.lastName ? errors.lastName : null}
+                    helperText={
+                      errors.lastName && touched.lastName
+                        ? errors.lastName
+                        : null
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -111,7 +126,9 @@ const SignupForm = () => {
                     name="email"
                     autoComplete="email"
                     error={errors.email && touched.email}
-                    helperText={errors.email && touched.email ? errors.email : null}
+                    helperText={
+                      errors.email && touched.email ? errors.email : null
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -127,7 +144,11 @@ const SignupForm = () => {
                     autoComplete="current-password"
                     onChange={handleChange}
                     error={errors.password && touched.password}
-                    helperText={errors.password && touched.password ? errors.password : null}
+                    helperText={
+                      errors.password && touched.password
+                        ? errors.password
+                        : null
+                    }
                   />
                 </Grid>
                 <Grid item xs={12}>
